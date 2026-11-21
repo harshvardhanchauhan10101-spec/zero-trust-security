@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Trust Security System</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #101827;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #00ffff;
+}
+
+.container {
+    background: #243447;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #00a86b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #008f5a;
+}
+
+.box {
+    background: #243447;
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>ZERO TRUST SECURITY</h1>
+<h3>Never Trust, Always Verify</h3>
+
+<div class="container">
+
+    <h2>User Login</h2>
+
+    <input type="text" id="username"
+    placeholder="Enter Username">
+
+    <input type="password" id="password"
+    placeholder="Enter Password">
+
+    <button onclick="verifyUser()">
+        Verify Access
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<h2>Security Dashboard</h2>
+
+<div class="box">
+    <h3>1. User Verification</h3>
+    <p id="userStatus">Waiting for verification...</p>
+</div>
+
+<div class="box">
+    <h3>2. Device Security</h3>
+    <p id="deviceStatus">Waiting for verification...</p>
+</div>
+
+<div class="box">
+    <h3>3. Access Control</h3>
+    <p id="accessStatus">Access not granted</p>
+</div>
+
+<script>
+
+function verifyUser() {
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    let result = document.getElementById("result");
+
+    if (user === "admin" && pass === "12345") {
+
+        document.getElementById("userStatus").innerHTML =
+        "Identity Verified";
+
+        document.getElementById("deviceStatus").innerHTML =
+        "Demo Device Check Passed";
+
+        document.getElementById("accessStatus").innerHTML =
+        "Access Granted";
+
+        result.innerHTML =
+        "Login Successful! Welcome Admin.";
+
+        result.style.color = "#00ff88";
+
+    } else {
+
+        document.getElementById("userStatus").innerHTML =
+        "Identity Verification Failed";
+
+        document.getElementById("deviceStatus").innerHTML =
+        "Device Check Not Completed";
+
+        document.getElementById("accessStatus").innerHTML =
+        "Access Denied";
+
+        result.innerHTML =
+        "Invalid Username or Password!";
+
+        result.style.color = "red";
+    }
+}
+
+</script>
+
+</body>
+</html>
